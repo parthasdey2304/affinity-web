@@ -6,8 +6,10 @@ export default function DocsLayout({ children }: { children: React.ReactNode }) 
     <div className="flex min-h-screen flex-col bg-[var(--color-affinity-base)] text-[var(--color-affinity-text-base)]">
       <TopNav />
       <div className="flex flex-1 mx-auto w-full max-w-7xl relative">
-        <Sidebar />
-        <main className="flex-1 min-w-0 px-8 py-10">
+        <div className="hidden md:block">
+          <Sidebar />
+        </div>
+        <main className="flex-1 min-w-0 px-4 md:px-8 py-6 md:py-10">
           {children}
         </main>
       </div>

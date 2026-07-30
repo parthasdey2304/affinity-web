@@ -1,38 +1,84 @@
 @import "tailwindcss";
 
 @theme {
-  --color-affinity-base: #050816;
-  --color-affinity-surface: #0A0F2C;
-  --color-affinity-elevated: #0D1B4B;
-  --color-affinity-glass: rgba(13, 27, 75, 0.45);
+  --color-affinity-base: var(--affinity-base);
+  --color-affinity-surface: var(--affinity-surface);
+  --color-affinity-elevated: var(--affinity-elevated);
+  --color-affinity-glass: var(--affinity-glass);
   
-  --color-affinity-primary: #1E40AF;
-  --color-affinity-secondary: #3B82F6;
-  --color-affinity-glow: #60A5FA;
-  --color-affinity-highlight: #93C5FD;
+  --color-affinity-primary: var(--affinity-primary);
+  --color-affinity-secondary: var(--affinity-secondary);
+  --color-affinity-glow: var(--affinity-glow);
+  --color-affinity-highlight: var(--affinity-highlight);
   
-  --color-affinity-text-base: #E2E8F0;
-  --color-affinity-text-muted: #94A3B8;
-  --color-affinity-text-faint: #475569;
-  --color-affinity-text-code: #7DD3FC;
+  --color-affinity-text-base: var(--affinity-text-base);
+  --color-affinity-text-muted: var(--affinity-text-muted);
+  --color-affinity-text-faint: var(--affinity-text-faint);
+  --color-affinity-text-code: var(--affinity-text-code);
   
   --color-affinity-term-green: #4ADE80;
   --color-affinity-term-red: #F87171;
   --color-affinity-term-yellow: #FACC15;
   --color-affinity-term-cyan: #22D3EE;
   
-  --color-affinity-glass-border: rgba(96, 165, 250, 0.18);
+  --color-affinity-glass-border: var(--affinity-glass-border);
 }
 
+:root {
+  --affinity-base: #FFFFFF;
+  --affinity-surface: #F8FAFC;
+  --affinity-elevated: #F1F5F9;
+  --affinity-glass: rgba(255, 255, 255, 0.7);
+  
+  --affinity-primary: #1E40AF;
+  --affinity-secondary: #3B82F6;
+  --affinity-glow: #93C5FD;
+  --affinity-highlight: #DBEAFE;
+  
+  --affinity-text-base: #0F172A;
+  --affinity-text-muted: #475569;
+  --affinity-text-faint: #94A3B8;
+  --affinity-text-code: #0369A1;
+  
+  --affinity-glass-border: rgba(30, 64, 175, 0.1);
+
+  --glass-panel-bg: rgba(255, 255, 255, 0.7);
+  --glass-panel-border: rgba(30, 64, 175, 0.15);
+  --glass-panel-shadow: inset 0 0 20px rgba(255, 255, 255, 0.5), 0 8px 32px rgba(0, 0, 0, 0.05);
+}
+
+.dark {
+  --affinity-base: #050816;
+  --affinity-surface: #0A0F2C;
+  --affinity-elevated: #0D1B4B;
+  --affinity-glass: rgba(13, 27, 75, 0.45);
+  
+  --affinity-primary: #1E40AF;
+  --affinity-secondary: #3B82F6;
+  --affinity-glow: #60A5FA;
+  --affinity-highlight: #93C5FD;
+  
+  --affinity-text-base: #E2E8F0;
+  --affinity-text-muted: #94A3B8;
+  --affinity-text-faint: #475569;
+  --affinity-text-code: #7DD3FC;
+  
+  --affinity-glass-border: rgba(96, 165, 250, 0.18);
+
+  --glass-panel-bg: rgba(10, 15, 44, 0.6);
+  --glass-panel-border: rgba(96, 165, 250, 0.25);
+  --glass-panel-shadow: inset 0 0 20px rgba(255, 255, 255, 0.05), 0 8px 32px rgba(0, 0, 0, 0.4);
+}
 
 /* Apple Intelligence-style glass panels */
 .glass-panel {
-  background: rgba(10, 15, 44, 0.6);
+  background: var(--glass-panel-bg);
   backdrop-filter: blur(24px) saturate(200%);
   -webkit-backdrop-filter: blur(24px) saturate(200%);
-  border: 1px solid rgba(96, 165, 250, 0.25);
+  border: 1px solid var(--glass-panel-border);
   border-radius: 12px;
-  box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.05), 0 8px 32px rgba(0, 0, 0, 0.4);
+  box-shadow: var(--glass-panel-shadow);
+  transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .glass-panel-light {
@@ -55,8 +101,8 @@
 
 /* Terminal window chrome */
 .terminal-chrome {
-  background: linear-gradient(135deg, #0A0F2C 0%, #0D1B4B 100%);
-  border: 1px solid rgba(96, 165, 250, 0.2);
+  background: linear-gradient(135deg, var(--affinity-surface) 0%, var(--affinity-elevated) 100%);
+  border: 1px solid var(--affinity-glass-border);
   border-radius: 10px;
   overflow: hidden;
 }

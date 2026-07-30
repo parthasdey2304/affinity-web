@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Poppins, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { LenisProvider } from "@/lib/lenis";
+import { ThemeProvider } from "@/components/ui/ThemeProvider";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
@@ -34,14 +35,17 @@ export default function RootLayout({
   return (
     <html
       lang="en"
+      suppressHydrationWarning
       className={`${poppins.variable} ${jetbrainsMono.variable} h-full antialiased bg-[var(--color-affinity-base)] text-[var(--color-affinity-text-base)]`}
     >
-      <body className="min-h-full flex flex-col font-sans">
-        <LenisProvider>
-          {children}
-        </LenisProvider>
-        <Analytics />
-        <SpeedInsights />
+      <body className="min-h-full flex flex-col font-sans transition-colors duration-300">
+        <ThemeProvider attribute="class" defaultTheme="dark" disableTransitionOnChange>
+          <LenisProvider>
+            {children}
+          </LenisProvider>
+          <Analytics />
+          <SpeedInsights />
+        </ThemeProvider>
       </body>
     </html>
   );
