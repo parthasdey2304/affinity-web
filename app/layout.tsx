@@ -25,6 +25,15 @@ export const metadata: Metadata = {
     default: "Affinity | The next-generation cat/bat replacement",
   },
   description: "A premium, production-ready documentation website for Affinity.",
+  openGraph: {
+    title: "Affinity | The next-generation cat/bat replacement",
+    description: "A premium, production-ready documentation website for Affinity.",
+    images: [{ url: "/icon.png", width: 512, height: 512 }],
+  },
+  twitter: {
+    card: "summary",
+    images: ["/icon.png"],
+  },
 };
 
 export default function RootLayout({
