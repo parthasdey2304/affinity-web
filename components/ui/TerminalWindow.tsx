@@ -21,7 +21,7 @@ export function TerminalWindow({ children, className, filename = "affinity", raw
           {filename && filename.trim() !== '' ? filename : ''}
         </div>
         <div className="w-16 flex justify-end">
-          {rawCode && <CopyButton text={rawCode} className="opacity-0 group-hover:opacity-100 transition-opacity" />}
+          {rawCode && <CopyButton text={rawCode} className="opacity-100 transition-opacity" />}
         </div>
       </div>
       <div suppressHydrationWarning className="p-5 overflow-x-auto overflow-y-auto max-h-[500px] custom-scrollbar leading-relaxed" style={{background: 'var(--terminal-body-bg)', color: 'var(--terminal-text)'}}>

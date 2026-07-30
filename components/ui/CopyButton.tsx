@@ -13,7 +13,13 @@ export function CopyButton({ text, className }: CopyButtonProps) {
   const [isCopied, setIsCopied] = useState(false);
 
   const copy = async () => {
-    await navigator.clipboard.writeText(text);
+    // Strip "$ " or "$" prefix from the start of lines for copying
+    const cleanText = text
+      .split('\n')
+      .map((line) => line.replace(/^\$\s*/, ''))
+      .join('\n');
+      
+    await navigator.clipboard.writeText(cleanText);
     setIsCopied(true);
     setTimeout(() => {
       setIsCopied(false);

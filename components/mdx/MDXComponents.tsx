@@ -4,7 +4,16 @@ import React from 'react';
 
 async function HighlightedCode({ code, language }: { code: string, language: string }) {
   const highlighter = await getShikiHighlighter();
-  const html = highlighter.codeToHtml(code, { lang: language, theme: 'one-dark-pro' });
+  let html = highlighter.codeToHtml(code, { lang: language, theme: 'one-dark-pro' });
+  
+  if (language === 'bash' || language === 'sh') {
+    // Add select-none to $ spans to make them unselectable and separate from the command
+    html = html.replace(
+      /<span class="line"><span style="([^"]+)">\$<\/span>/g,
+      '<span class="line"><span style="$1" class="select-none opacity-50 pointer-events-none w-4 inline-block">$</span>'
+    );
+  }
+
   return <div suppressHydrationWarning dangerouslySetInnerHTML={{ __html: html }} className="[&>pre]:!bg-transparent [&>pre]:!p-0" />;
 }
 
