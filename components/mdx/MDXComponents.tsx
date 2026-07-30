@@ -5,7 +5,7 @@ import React from 'react';
 async function HighlightedCode({ code, language }: { code: string, language: string }) {
   const highlighter = await getShikiHighlighter();
   const html = highlighter.codeToHtml(code, { lang: language, theme: 'one-dark-pro' });
-  return <div dangerouslySetInnerHTML={{ __html: html }} className="[&>pre]:!bg-transparent [&>pre]:!p-0" />;
+  return <div suppressHydrationWarning dangerouslySetInnerHTML={{ __html: html }} className="[&>pre]:!bg-transparent [&>pre]:!p-0" />;
 }
 
 export const MDXComponents = {
@@ -23,12 +23,34 @@ export const MDXComponents = {
     const language = matches ? matches[1] : 'text';
     const code = codeProps.children || '';
 
+    let filename: string | null = language === 'text' ? 'affinity' : `example.${language}`;
+    let displayCode = code;
+
+    if (typeof code === 'string') {
+      const lines = code.split('\n');
+      const firstLine = lines[0]?.trim() || '';
+      
+      if (firstLine.startsWith('// filename:')) {
+        filename = firstLine.replace('// filename:', '').trim();
+        displayCode = lines.slice(1).join('\n').replace(/^\n/, '');
+      } else if (firstLine === '// no-filename') {
+        filename = null;
+        displayCode = lines.slice(1).join('\n').replace(/^\n/, '');
+      } else if (firstLine.startsWith('# filename:')) {
+        filename = firstLine.replace('# filename:', '').trim();
+        displayCode = lines.slice(1).join('\n').replace(/^\n/, '');
+      } else if (firstLine === '# no-filename') {
+        filename = null;
+        displayCode = lines.slice(1).join('\n').replace(/^\n/, '');
+      }
+    }
+
     return (
       <div className="my-8">
-        <TerminalWindow filename={language === 'text' ? 'affinity' : `example.${language}`}>
+        <TerminalWindow filename={filename} rawCode={displayCode}>
           <React.Suspense fallback={<div className="p-4 text-slate-500">Loading code...</div>}>
             {/* @ts-ignore */}
-            <HighlightedCode code={code} language={language} />
+            <HighlightedCode code={displayCode} language={language} />
           </React.Suspense>
         </TerminalWindow>
       </div>
