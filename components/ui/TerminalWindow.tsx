@@ -8,7 +8,7 @@ interface TerminalWindowProps extends React.HTMLAttributes<HTMLDivElement> {
 export function TerminalWindow({ children, className, filename = "affinity", ...props }: TerminalWindowProps) {
   return (
     <div className={cn("glass-panel overflow-hidden flex flex-col font-mono text-[13.5px] shadow-2xl my-6", className)} {...props}>
-      <div className="flex items-center px-4 py-3 border-b border-white/10 bg-black/40 backdrop-blur-md">
+      <div className="flex items-center px-4 py-3 border-b backdrop-blur-md" style={{background: 'var(--terminal-header-bg)', borderColor: 'var(--terminal-border)'}}>
         <div className="flex space-x-2 w-12">
           <div className="w-3 h-3 rounded-full bg-red-500/90 shadow-[0_0_8px_rgba(239,68,68,0.5)]"></div>
           <div className="w-3 h-3 rounded-full bg-yellow-500/90 shadow-[0_0_8px_rgba(234,179,8,0.5)]"></div>
@@ -19,7 +19,7 @@ export function TerminalWindow({ children, className, filename = "affinity", ...
         </div>
         <div className="w-12"></div>
       </div>
-      <div className="p-5 overflow-x-auto overflow-y-auto max-h-[500px] bg-black/20 text-slate-300 custom-scrollbar leading-relaxed">
+      <div className="p-5 overflow-x-auto overflow-y-auto max-h-[500px] custom-scrollbar leading-relaxed" style={{background: 'var(--terminal-body-bg)', color: 'var(--terminal-text)'}}>
         {children}
       </div>
     </div>

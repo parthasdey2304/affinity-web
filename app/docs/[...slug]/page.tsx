@@ -22,10 +22,10 @@ export default async function DocPage(props: { params: Promise<{ slug: string[] 
   }
   
   return (
-    <article className="prose prose-invert prose-blue max-w-4xl font-sans text-slate-300">
-      <h1 className="text-4xl font-bold text-white mb-2 font-poppins">{doc.frontmatter.title}</h1>
+    <article className="prose prose-blue max-w-4xl font-sans dark:prose-invert text-[var(--affinity-text-muted)]">
+      <h1 className="text-4xl font-bold text-[var(--affinity-text-base)] mb-2 font-poppins">{doc.frontmatter.title}</h1>
       {doc.frontmatter.description && (
-        <p className="text-xl text-slate-400 mb-8">{doc.frontmatter.description}</p>
+        <p className="text-xl text-[var(--affinity-text-muted)] mb-8">{doc.frontmatter.description}</p>
       )}
       
       <div className="mt-8">

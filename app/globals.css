@@ -28,8 +28,9 @@
   --affinity-base: #FFFFFF;
   --affinity-surface: #F8FAFC;
   --affinity-elevated: #F1F5F9;
-  --affinity-glass: rgba(255, 255, 255, 0.7);
-  
+  --affinity-glass: rgba(30, 30, 35, 0.88);
+  --affinity-nav-border: rgba(255, 255, 255, 0.08);
+
   --affinity-primary: #1E40AF;
   --affinity-secondary: #3B82F6;
   --affinity-glow: #93C5FD;
@@ -45,6 +46,11 @@
   --glass-panel-bg: rgba(255, 255, 255, 0.7);
   --glass-panel-border: rgba(30, 64, 175, 0.15);
   --glass-panel-shadow: inset 0 0 20px rgba(255, 255, 255, 0.5), 0 8px 32px rgba(0, 0, 0, 0.05);
+
+  --terminal-header-bg: #2a2a2e;
+  --terminal-body-bg: #1e1e22;
+  --terminal-text: #d4d4d8;
+  --terminal-border: rgba(255,255,255,0.08);
 }
 
 .dark {
@@ -68,6 +74,11 @@
   --glass-panel-bg: rgba(10, 15, 44, 0.6);
   --glass-panel-border: rgba(96, 165, 250, 0.25);
   --glass-panel-shadow: inset 0 0 20px rgba(255, 255, 255, 0.05), 0 8px 32px rgba(0, 0, 0, 0.4);
+
+  --terminal-header-bg: #1e1e22;
+  --terminal-body-bg: #12121a;
+  --terminal-text: #c4c4cc;
+  --terminal-border: rgba(255,255,255,0.06);
 }
 
 /* Apple Intelligence-style glass panels */

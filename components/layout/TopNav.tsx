@@ -8,8 +8,10 @@ import { ThemeToggle } from '@/components/ui/ThemeToggle';
 
 export function TopNav() {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [isMac, setIsMac] = useState(false);
 
   useEffect(() => {
+    setIsMac(navigator.platform.toUpperCase().includes('MAC'));
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'k' && (e.metaKey || e.ctrlKey)) {
         e.preventDefault();
@@ -22,31 +24,31 @@ export function TopNav() {
 
   return (
     <>
-      <header className="sticky top-0 z-50 w-full border-b border-[var(--color-affinity-glass-border)] bg-[var(--color-affinity-glass)] backdrop-blur-xl">
+      <header className="sticky top-0 z-50 w-full border-b border-white/10 bg-[var(--affinity-glass)] backdrop-blur-xl">
         <div className="flex h-16 items-center px-4 md:px-6">
           <MobileNav />
           <Link href="/" className="flex items-center space-x-2 mr-2">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-blue-500">
               <path d="M4 17l6-6-6-6M12 19h8" />
             </svg>
-            <span className="font-bold tracking-tight text-xl text-slate-900 dark:text-white font-poppins hidden sm:inline-block">
+            <span className="font-bold tracking-tight text-xl text-white dark:text-white font-poppins hidden sm:inline-block">
               affinity
             </span>
           </Link>
-          <nav className="mx-6 items-center space-x-6 text-sm font-medium text-slate-600 dark:text-slate-300 hidden md:flex">
-            <Link href="/docs/overview" className="transition-colors hover:text-black dark:hover:text-white">Docs</Link>
-            <Link href="/docs/features/core-viewer" className="transition-colors hover:text-black dark:hover:text-white">Features</Link>
-            <Link href="/docs/themes" className="transition-colors hover:text-black dark:hover:text-white">Themes</Link>
+          <nav className="mx-6 items-center space-x-6 text-sm font-medium text-slate-300 dark:text-slate-300 hidden md:flex">
+            <Link href="/docs/overview" className="transition-colors hover:text-white dark:hover:text-white">Docs</Link>
+            <Link href="/docs/features/core-viewer" className="transition-colors hover:text-white dark:hover:text-white">Features</Link>
+            <Link href="/docs/themes" className="transition-colors hover:text-white dark:hover:text-white">Themes</Link>
           </nav>
           <div className="flex flex-1 items-center justify-end space-x-2 md:space-x-4">
             <div className="w-full max-w-xs md:max-w-sm">
               <button 
                 onClick={() => setIsSearchOpen(true)}
-                className="flex w-full items-center space-x-2 rounded-md border border-slate-300 dark:border-white/10 bg-slate-100 dark:bg-black/20 px-3 py-1.5 text-sm text-slate-500 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-black/40 transition-colors"
+                className="flex w-full items-center space-x-2 rounded-md border border-white/15 bg-white/10 px-3 py-1.5 text-sm text-slate-300 dark:text-slate-400 hover:bg-white/20 dark:hover:bg-black/40 transition-colors"
               >
                 <span className="flex-1 text-left hidden sm:inline-block">Search documentation...</span>
                 <span className="flex-1 text-left sm:hidden">Search...</span>
-                <kbd className="rounded bg-slate-200 dark:bg-white/10 px-1.5 text-[10px] font-medium text-slate-500 dark:text-slate-300 hidden sm:inline-block">⌘K</kbd>
+                <kbd className="rounded bg-slate-200 dark:bg-white/10 px-1.5 text-[10px] font-medium text-slate-500 dark:text-slate-300 hidden sm:inline-block">{isMac ? '⌘K' : 'Ctrl K'}</kbd>
               </button>
             </div>
             <ThemeToggle />
