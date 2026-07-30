@@ -1,0 +1,23 @@
+{
+  "overview":      { "title": "Overview",     "order": 1 },
+  "installation":  { "title": "Installation", "order": 2 },
+  "quickstart":    { "title": "Quickstart",   "order": 3, "badge": "new" },
+  "features": {
+    "title": "Features",
+    "order": 4,
+    "items": {
+      "core-viewer":     { "title": "Core Viewer",    "order": 1 },
+      "watch-mode":      { "title": "Watch Mode",     "order": 2 },
+      "run-mode":        { "title": "Run Mode",       "order": 3 },
+      "diff-viewer":     { "title": "Diff Viewer",    "order": 4 },
+      "directory-tree":  { "title": "Directory Tree", "order": 5 },
+      "stdin-piping":    { "title": "Stdin Piping",   "order": 6 },
+      "line-focus":      { "title": "Line Focus",     "order": 7 },
+      "mirage-mode":     { "title": "Mirage Mode",    "order": 8, "badge": "beta" }
+    }
+  },
+  "cli-reference":  { "title": "CLI Reference",  "order": 5 },
+  "themes":         { "title": "Themes",          "order": 6 },
+  "contributing":   { "title": "Contributing",    "order": 7 },
+  "changelog":      { "title": "Changelog",       "order": 8 }
+}
