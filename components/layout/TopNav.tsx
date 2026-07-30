@@ -2,12 +2,14 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { SearchModal } from '@/components/ui/SearchModal';
 import { MobileNav } from '@/components/layout/MobileNav';
 import { ThemeToggle } from '@/components/ui/ThemeToggle';
 
 export function TopNav() {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const pathname = usePathname();
   const [isMac, setIsMac] = useState(false);
 
   useEffect(() => {
@@ -35,10 +37,21 @@ export function TopNav() {
               affinity
             </span>
           </Link>
-          <nav className="absolute left-1/2 -translate-x-1/2 items-center space-x-6 text-sm font-medium text-slate-300 dark:text-slate-300 hidden md:flex">
-            <Link href="/docs/overview" className="transition-colors hover:text-white dark:hover:text-white">Docs</Link>
-            <Link href="/docs/features/core-viewer" className="transition-colors hover:text-white dark:hover:text-white">Features</Link>
-            <Link href="/docs/themes" className="transition-colors hover:text-white dark:hover:text-white">Themes</Link>
+          <nav className="absolute left-1/2 -translate-x-1/2 items-center space-x-1 text-sm font-medium hidden md:flex">
+            {[
+              { href: '/docs/overview', label: 'Docs', match: '/docs' },
+              { href: '/docs/features/core-viewer', label: 'Features', match: '/docs/features' },
+              { href: '/docs/themes', label: 'Themes', match: '/docs/themes' },
+            ].map(({ href, label, match }) => {
+              const isActive = pathname.startsWith(match);
+              return (
+                <Link key={href} href={href} className={`px-3 py-1.5 rounded-md transition-colors ${
+                  isActive
+                    ? 'bg-white/15 text-white'
+                    : 'text-slate-300 hover:text-white hover:bg-white/10'
+                }`}>{label}</Link>
+              );
+            })}
           </nav>
           <div className="flex flex-1 items-center justify-end space-x-2 md:space-x-4">
             <div className="w-full max-w-xs md:max-w-sm">
