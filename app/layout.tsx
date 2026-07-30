@@ -39,7 +39,7 @@ export default function RootLayout({
       className={`${poppins.variable} ${jetbrainsMono.variable} h-full antialiased bg-[var(--affinity-base)] text-[var(--affinity-text-base)]`}
     >
       <body className="min-h-full flex flex-col font-sans transition-colors duration-300">
-        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false} disableTransitionOnChange>
+        <ThemeProvider attribute="class" defaultTheme="dark" disableTransitionOnChange>
           <LenisProvider>
             {children}
           </LenisProvider>

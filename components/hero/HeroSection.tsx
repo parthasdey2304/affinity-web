@@ -3,13 +3,13 @@ import Link from "next/link";
 
 export function HeroSection() {
   return (
-    <section className="relative overflow-hidden pt-32 pb-24 lg:pt-48 lg:pb-32">
+    <section className="relative overflow-hidden pt-10 pb-16 lg:pt-16 lg:pb-24">
       {/* Background gradients */}
       <div className="absolute inset-0 -z-10 bg-[var(--affinity-base)]">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(96,165,250,0.15),transparent_50%)]" />
       </div>
       
-      <div className="relative z-10 flex flex-col items-center justify-center pt-32 pb-20 px-6 text-center">
+      <div className="relative z-10 flex flex-col items-center justify-center pt-20 lg:pt-10 pb-16 px-6 text-center">
         <div className="inline-flex items-center space-x-2 rounded-full bg-blue-500/10 px-3 py-1 mb-8 border border-blue-500/20">
           <span className="flex h-2 w-2 rounded-full bg-blue-500 animate-pulse"></span>
           <span className="text-sm font-medium text-blue-400">Affinity v1.0 is here</span>
@@ -25,7 +25,7 @@ export function HeroSection() {
         </p>
         
         <div className="flex flex-col sm:flex-row items-center gap-4">
-          <Link href="/docs/overview" className="group inline-flex items-center justify-center rounded-md bg-blue-600 px-8 py-3 text-sm font-medium text-white transition-all hover:bg-blue-500 hover:shadow-[0_0_20px_rgba(59,130,246,0.5)]">
+          <Link href="/docs/overview" className="group inline-flex items-center justify-center rounded-md bg-blue-600 px-8 py-3 text-sm font-semibold !text-white transition-all hover:bg-blue-500 hover:shadow-[0_0_20px_rgba(59,130,246,0.5)]">
             Get Started
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="ml-2 transition-transform group-hover:translate-x-1">
               <path d="M5 12h14M12 5l7 7-7 7" />

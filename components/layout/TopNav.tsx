@@ -42,7 +42,7 @@ export function TopNav() {
           </nav>
           <div className="flex flex-1 items-center justify-end space-x-2 md:space-x-4">
             <div className="w-full max-w-xs md:max-w-sm">
-              <button 
+              <button
                 onClick={() => setIsSearchOpen(true)}
                 className="flex w-full items-center space-x-2 rounded-md border border-white/15 bg-white/10 px-3 py-1.5 text-sm text-slate-300 dark:text-slate-400 hover:bg-white/20 dark:hover:bg-black/40 transition-colors"
               >
