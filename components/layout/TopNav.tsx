@@ -35,7 +35,7 @@ export function TopNav() {
               affinity
             </span>
           </Link>
-          <nav className="mx-6 items-center space-x-6 text-sm font-medium text-slate-300 dark:text-slate-300 hidden md:flex">
+          <nav className="absolute left-1/2 -translate-x-1/2 items-center space-x-6 text-sm font-medium text-slate-300 dark:text-slate-300 hidden md:flex">
             <Link href="/docs/overview" className="transition-colors hover:text-white dark:hover:text-white">Docs</Link>
             <Link href="/docs/features/core-viewer" className="transition-colors hover:text-white dark:hover:text-white">Features</Link>
             <Link href="/docs/themes" className="transition-colors hover:text-white dark:hover:text-white">Themes</Link>
@@ -48,7 +48,7 @@ export function TopNav() {
               >
                 <span className="flex-1 text-left hidden sm:inline-block">Search documentation...</span>
                 <span className="flex-1 text-left sm:hidden">Search...</span>
-                <kbd className="rounded bg-slate-200 dark:bg-white/10 px-1.5 text-[10px] font-medium text-slate-500 dark:text-slate-300 hidden sm:inline-block">{isMac ? '⌘K' : 'Ctrl K'}</kbd>
+                <kbd className="rounded bg-slate-200 dark:bg-white/10 px-1.5 text-[10px] font-medium text-slate-500 dark:text-slate-300 hidden sm:inline-block">{isMac ? '⌘ + K' : 'Ctrl + K'}</kbd>
               </button>
             </div>
             <ThemeToggle />
