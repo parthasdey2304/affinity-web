@@ -5,6 +5,7 @@ import rehypeSlug from 'rehype-slug';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import remarkGfm from 'remark-gfm';
 import { MDXComponents } from '@/components/mdx/MDXComponents';
+import Image from 'next/image';
 
 export async function generateStaticParams() {
   const docs = getAllDocs();
@@ -23,10 +24,15 @@ export default async function DocPage(props: { params: Promise<{ slug: string[] 
   
   return (
     <article className="prose prose-blue max-w-4xl font-sans dark:prose-invert text-[var(--affinity-text-muted)]">
-      <h1 className="text-4xl font-bold text-[var(--affinity-text-base)] mb-2 font-poppins">{doc.frontmatter.title}</h1>
-      {doc.frontmatter.description && (
-        <p className="text-xl text-[var(--affinity-text-muted)] mb-8">{doc.frontmatter.description}</p>
-      )}
+      <div className="flex items-start justify-between gap-4 mb-2">
+        <div>
+          <h1 className="text-4xl font-bold text-[var(--affinity-text-base)] mb-2 font-poppins">{doc.frontmatter.title}</h1>
+          {doc.frontmatter.description && (
+            <p className="text-xl text-[var(--affinity-text-muted)] mb-0">{doc.frontmatter.description}</p>
+          )}
+        </div>
+        <Image suppressHydrationWarning src="/icon.png" alt="Affinity" width={96} height={96} className="rounded-2xl shrink-0 mt-1 not-prose border border-white/30" />
+      </div>
       
       <div className="mt-8">
         <MDXRemote 

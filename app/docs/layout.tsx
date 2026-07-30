@@ -9,7 +9,7 @@ export default function DocsLayout({ children }: { children: React.ReactNode }) 
         <div className="hidden md:block">
           <Sidebar />
         </div>
-        <main className="flex-1 min-w-0 px-4 md:px-8 py-6 md:py-10">
+        <main className="flex-1 min-w-0 px-4 md:px-8 py-6 md:py-10 pt-8 md:pt-10">
           {children}
         </main>
       </div>

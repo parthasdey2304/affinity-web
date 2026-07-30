@@ -28,7 +28,7 @@ export function TopNav() {
         <div className="flex h-16 items-center px-4 md:px-6">
           <MobileNav />
           <Link href="/" className="flex items-center space-x-2 mr-2">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-blue-500">
+            <svg suppressHydrationWarning width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-blue-500">
               <path d="M4 17l6-6-6-6M12 19h8" />
             </svg>
             <span className="font-bold tracking-tight text-xl text-white dark:text-white font-poppins hidden sm:inline-block">

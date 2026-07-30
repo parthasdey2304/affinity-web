@@ -36,8 +36,8 @@ export function HeroSection() {
           </Link>
         </div>
         
-        <div className="mt-16 w-full max-w-3xl mx-auto rounded-xl overflow-hidden shadow-2xl" style={{border: '1px solid rgba(255,255,255,0.08)'}}>
-          <div className="flex items-center px-4 py-3 border-b border-white/10" style={{background: 'var(--terminal-header-bg)'}}>
+        <div suppressHydrationWarning className="mt-16 w-full max-w-3xl mx-auto rounded-xl overflow-hidden shadow-2xl border border-white/10">
+          <div suppressHydrationWarning className="flex items-center px-4 py-3 border-b border-white/10" style={{background: 'var(--terminal-header-bg)'}}>
             <div className="flex space-x-2">
               <div className="w-3 h-3 rounded-full bg-red-500/80"></div>
               <div className="w-3 h-3 rounded-full bg-yellow-500/80"></div>
@@ -45,7 +45,7 @@ export function HeroSection() {
             </div>
             <div className="mx-auto text-xs font-mono text-slate-400">~/projects/affinity</div>
           </div>
-          <div className="p-6 font-mono text-sm text-left relative overflow-hidden" style={{background: 'var(--terminal-body-bg)', color: 'var(--terminal-text)'}}>
+          <div suppressHydrationWarning className="p-6 font-mono text-sm text-left relative overflow-hidden" style={{background: 'var(--terminal-body-bg)', color: 'var(--terminal-text)'}}>
             <div className="flex flex-col space-y-2 relative z-10">
               <div className="mt-2 text-[var(--affinity-term-cyan)]">$ affinity --help</div>
             </div>
