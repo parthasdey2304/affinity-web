@@ -1,0 +1,22 @@
+---
+title: Line Focus
+description: Focus on specific lines
+---
+
+## Line Focus
+
+Highlight and focus on specific lines.
+
+```bash
+$ affinity main.py --focus 10-15
+[Affinity] Rendering main.py (Lines 10-15)
+
+ 10 | def process_data(data):
+ 11 |     cleaned = sanitize(data)
+ 12 |     results = []
+ 13 |     for item in cleaned:
+ 14 |         results.append(transform(item))
+ 15 |     return results
+
+[Affinity] Focus mode active.
+```

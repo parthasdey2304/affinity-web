@@ -4,6 +4,7 @@ import { MDXRemote } from 'next-mdx-remote/rsc';
 import rehypeSlug from 'rehype-slug';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import remarkGfm from 'remark-gfm';
+import { MDXComponents } from '@/components/mdx/MDXComponents';
 
 export async function generateStaticParams() {
   const docs = getAllDocs();
@@ -27,9 +28,10 @@ export default async function DocPage(props: { params: Promise<{ slug: string[] 
         <p className="text-xl text-slate-400 mb-8">{doc.frontmatter.description}</p>
       )}
       
-      <div className="mt-8 prose-headings:font-poppins prose-headings:text-white prose-a:text-blue-400 prose-a:no-underline hover:prose-a:underline">
+      <div className="mt-8">
         <MDXRemote 
           source={doc.content} 
+          components={MDXComponents}
           options={{
             mdxOptions: {
               remarkPlugins: [remarkGfm],

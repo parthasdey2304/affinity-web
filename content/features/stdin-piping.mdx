@@ -1,0 +1,19 @@
+---
+title: Stdin Piping
+description: Pipe outputs into Affinity
+---
+
+## Stdin Piping
+
+Pipe the output of any command into Affinity.
+
+```bash
+$ cat access.log | grep "ERROR" | affinity -
+[Affinity] Reading from stdin...
+
+[2026-07-30 10:14:22] ERROR: Connection timeout
+[2026-07-30 10:15:01] ERROR: Authentication failed for user 'admin'
+[2026-07-30 10:18:44] ERROR: Out of memory
+
+[Affinity] EOF reached. Rendered 3 lines.
+```

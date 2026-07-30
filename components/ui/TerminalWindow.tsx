@@ -7,18 +7,19 @@ interface TerminalWindowProps extends React.HTMLAttributes<HTMLDivElement> {
 
 export function TerminalWindow({ children, className, filename = "affinity", ...props }: TerminalWindowProps) {
   return (
-    <div className={cn("terminal-chrome flex flex-col font-mono text-[13px] shadow-2xl", className)} {...props}>
-      <div className="flex items-center px-4 py-2 border-b border-white/10 bg-black/20">
-        <div className="flex space-x-2">
-          <div className="w-3 h-3 rounded-full bg-red-500/80"></div>
-          <div className="w-3 h-3 rounded-full bg-yellow-500/80"></div>
-          <div className="w-3 h-3 rounded-full bg-green-500/80"></div>
+    <div className={cn("glass-panel overflow-hidden flex flex-col font-mono text-[13.5px] shadow-2xl my-6", className)} {...props}>
+      <div className="flex items-center px-4 py-3 border-b border-white/10 bg-black/40 backdrop-blur-md">
+        <div className="flex space-x-2 w-12">
+          <div className="w-3 h-3 rounded-full bg-red-500/90 shadow-[0_0_8px_rgba(239,68,68,0.5)]"></div>
+          <div className="w-3 h-3 rounded-full bg-yellow-500/90 shadow-[0_0_8px_rgba(234,179,8,0.5)]"></div>
+          <div className="w-3 h-3 rounded-full bg-green-500/90 shadow-[0_0_8px_rgba(34,197,94,0.5)]"></div>
         </div>
-        <div className="flex-1 text-center text-slate-400 select-none">
+        <div className="flex-1 text-center text-slate-300 font-medium select-none tracking-wide text-xs">
           {filename}
         </div>
+        <div className="w-12"></div>
       </div>
-      <div className="p-4 overflow-x-auto overflow-y-auto max-h-[400px] bg-[#0A0F1E]">
+      <div className="p-5 overflow-x-auto overflow-y-auto max-h-[500px] bg-black/20 text-slate-300 custom-scrollbar leading-relaxed">
         {children}
       </div>
     </div>
